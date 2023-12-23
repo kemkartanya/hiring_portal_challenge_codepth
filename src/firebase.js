@@ -3,16 +3,16 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.FIREBASE_APP_ID,
-    measurementId: process.env.FIREBASE_MEASUREMENT_ID
+    apiKey: 'AIzaSyA0uhvyvSnO_FWEmFK5iz3Dvedy1jkQaLY',
+    authDomain: "hiringportal-6c414.firebaseapp.com",
+    projectId: "hiringportal-6c414",
+    storageBucket: "hiringportal-6c414.appspot.com",
+    messagingSenderId: "733154631066",
+    appId: "1:733154631066:web:7ca5207e77513ce1eb2e23",
+    measurementId: "G-JNZLTP2SS0"
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 
+export const db = getFirestore(app);
 export const auth = getAuth(app);

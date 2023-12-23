@@ -1,25 +1,38 @@
 import React, { useState } from 'react';
 import { auth } from '../firebase.js'; // Import your Firebase configuration
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
     try {
-      await auth.signInWithEmailAndPassword(email, password);
+      await signInWithEmailAndPassword(auth, email, password);
       // Successfully logged in, you can redirect to the next page or perform other actions.
       console.log('Successfully logged in!');
+      
+      localStorage.setItem('userInfo', {
+        email: email,
+        password: password,
+      });
+      
+      navigate('/job-listing-creation');
     } catch (e) {
       setError(e.message);
+      console.log(e.message);
     }
   };
 
   return (
     <div align='center' className='my-12'>
       <div className='font-bold text-3xl'>Login</div>
-      <form className='my-5'>
+      <form className='my-5' onSubmit={handleLogin}>
         <div>
             <input
             type="email"
@@ -38,8 +51,8 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             />
         </div>
-        <button className='bg-[#008080] p-2 m-2 rounded' onClick={handleLogin}>Login</button>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <button className='bg-[#008080] p-2 m-2 rounded'>Login</button>
+        {error && <p style={{ color: 'red' }}>Can't login, Incorrect email or password</p>}
       </form>
     </div>
   );
