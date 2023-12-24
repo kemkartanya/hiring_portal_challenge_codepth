@@ -1,8 +1,44 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# hiring_portal_challenge_codepth
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+## Tech Stack
+
+React.js, TailwindCSS, Firebase
+
+
+
+## Usage
+
+Would be useful for user to list job, apply to jobs, and view the job responses
+ 
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/kemkartanya/hiring_portal_challenge_codepth
+```
+
+Go to the project directory
+
+```bash
+  cd hiring_portal_challenge_codepth
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
