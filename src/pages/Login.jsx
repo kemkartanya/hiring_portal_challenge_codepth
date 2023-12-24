@@ -17,10 +17,10 @@ const Login = () => {
       // Successfully logged in, you can redirect to the next page or perform other actions.
       console.log('Successfully logged in!');
       
-      localStorage.setItem('userInfo', {
+      localStorage.setItem('userInfo', JSON.stringify({
         email: email,
         password: password,
-      });
+      }));
       
       navigate('/job-listing-creation');
     } catch (e) {

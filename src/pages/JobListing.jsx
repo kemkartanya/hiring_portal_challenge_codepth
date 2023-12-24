@@ -13,10 +13,17 @@ const JobListing = () => {
     e.preventDefault();
 
     const jobListingsRef = collection(db, "jobs");
+    const notificationRef = collection(db, "notifications");
 
     try {
       // Push a new job listing to the 'jobListings' node in Firebase
       const newJobListingRef = await addDoc(jobListingsRef, {
+        title: jobTitle,
+        description: jobDescription,
+        location: jobLocation,
+      });
+
+      const newNotificationRef = await addDoc(notificationRef, {
         title: jobTitle,
         description: jobDescription,
         location: jobLocation,
